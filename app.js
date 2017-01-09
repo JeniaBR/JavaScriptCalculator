@@ -1,7 +1,7 @@
 $(document).ready(function () {
     
-    $('#btn-equal').click( function () {
+    $('#btn-equal1').click( function () {
         var res = $('#input').val();
-        $('#result').text(eval(res));
+        $('#calc-current').text(eval(res));
     });
 });

@@ -1,11 +1,42 @@
-h1{
+h1 {
     color: green;
     text-align: center;
 }
 
-#main-container{
+.button {
+    background-color: #4CAF50;
+    border: 1px solid green;
+    width: 25%;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    float: left;
+}
+
+#btn-0 {
+    width: 50%;
+}
+
+#main-container {
     background-color: bisque;
+    position: relative;
     margin: 0 auto;
     display: block;
     max-width: 500px;
+}
+
+#calc-current {
+    background-color: darkslategray;
+    height: 80px;
+    text-align: right;
+    padding: 15px;
+}
+
+#calc-history {
+    background-color: brown;
+    height: 15px;
+    text-align: right;
 }
