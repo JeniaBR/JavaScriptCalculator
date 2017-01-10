@@ -57,6 +57,7 @@ h1 {
 
 #calc-history {
     background-color: brown;
-    height: 15px;
+    height: 25px;
     text-align: right;
+    color: white;
 }

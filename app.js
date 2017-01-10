@@ -1,8 +1,13 @@
+function updateHistory(input){
+    $('#calc-history').text(input);
+}
+
 $(document).ready(function () {
     var result = "";
     $('.button').click(function () {
         var res = $(this).attr("value");
         result += res;
+        updateHistory(result);
     });
 
     $('#btn-equal').click(function () {
@@ -10,7 +15,7 @@ $(document).ready(function () {
         result = "";
     });
 
-    $('#btn-clear-ac').click(function () {
+    $('#btn-ac').click(function () {
         $('#calc-current').text("");
         result = "";
     });
