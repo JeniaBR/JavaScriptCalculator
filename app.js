@@ -74,7 +74,24 @@ function updateEntry(val) {
 }
 
 function updateHistory(op) {
-    $('#calc-current').text(op);
+    var reg = /[\+\-\*\/]/g;
+    var lastChar = evalHistory.slice(-1); //To get last char
+
+    if (entryVal.length > 0 && entryVal !== '0') {
+        if (reg.test(lastChar)) {
+            evalHistory = evalHistory + entryVal + op;
+        }else{
+            evalHistory = entryVal + op;
+        }
+        entryVal = '0';
+    }else if(evalHistory.length > 0){
+        if (reg.test(lastChar)) {
+            evalHistory = evalHistory.slice(0,-1);
+        }
+        evalHistory = evalHistory + op;
+    }
+
+    $('#calc-history').text(evalHistory);
 }
 
 $(document).ready(function () {
