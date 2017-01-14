@@ -75,18 +75,18 @@ function updateEntry(val) {
 
 function updateHistory(op) {
     var reg = /[\+\-\*\/]/g;
-    var lastChar = evalHistory.slice(-1); //To get last char
+    var lastChar = evalHistory.slice(-1);
 
     if (entryVal.length > 0 && entryVal !== '0') {
         if (reg.test(lastChar)) {
             evalHistory = evalHistory + entryVal + op;
-        }else{
+        } else {
             evalHistory = entryVal + op;
         }
         entryVal = '0';
-    }else if(evalHistory.length > 0){
+    } else if (evalHistory.length > 0) {
         if (reg.test(lastChar)) {
-            evalHistory = evalHistory.slice(0,-1);
+            evalHistory = evalHistory.slice(0, -1);
         }
         evalHistory = evalHistory + op;
     }
@@ -103,5 +103,36 @@ $(document).ready(function () {
     $('#btn-ac').click(function () {
         entryVal = '0';
         $('#calc-current').text(entryVal);
+        evalHistory = '0';
+        $('#calc-history').text('');
+    });
+
+    $('#btn-clear').click(function () {
+        entryVal = '0';
+        $('#calc-current').text(entryVal);
+    });
+
+    $('#btn-del').click(function () {
+        if (entryVal.length == 1) {
+            entryVal = "0";
+        } else {
+            entryVal = entryVal.slice(0, -1);
+        }
+        $('#calc-current').text(entryVal);
+    });
+
+    $('#btn-equal').click(function () {
+        if (entryVal.length > 0 && entryVal !== '0') {
+            evalHistory += entryVal;
+        }
+
+        if (evalHistory.length > 0) {
+            $('#calc-current').text(eval(evalHistory));
+            $('#calc-history').text(evalHistory);
+        }
+
+        entryVal = '0';
+        evalHistory = '';
+
     })
 });
