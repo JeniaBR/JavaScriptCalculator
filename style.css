@@ -1,63 +1,121 @@
+body {
+    margin: 0;
+    font: 100 14px 'Roboto';
+}
+
 h1 {
     color: green;
     text-align: center;
 }
 
-.button {
-    background-color: rgba(202, 202, 204, 1);
-    border: 1px solid #666;
-    width: 25%;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 16px;
+button {
+    display: block;
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: inherit;
+    user-select: none;
     cursor: pointer;
-    float: left;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-#btn-0 {
-    width: 50%;
-    text-align: left;
+button:active {
+    box-shadow: inset 0px 0px 80px 0px rgba(0, 0, 0, 0.25);
 }
 
-#btn-clear-ac {
-    padding-left: 1.7em;
-}
-
-#btn-minus-plus,
-#btn-clear-ac,
-#btn-percentage {
-    background-color: grey;
-}
-
-#btn-division,
-#btn-multi,
-#btn-minus,
-#btn-plus,
-#btn-equal {
-    background-color: orange;
-    color: white;
+#wraper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #main-container {
-    background-color: bisque;
+    width: 320px;
+    height: 530px;
     position: relative;
-    margin: 0 auto;
-    display: block;
-    max-width: 300px;
+}
+
+.calculator {
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    flex-direction: column;
+}
+
+#wrapper .calculator {
+    box-shadow: 0px 0px 20px 0px #aaa;
 }
 
 #calc-current {
-    background-color: darkslategray;
-    height: 80px;
+    color: white;
+    background: #1c191c;
+    line-height: 130px;
+    font-size: 6em;
+    flex: 1;
     text-align: right;
-    padding: 15px;
 }
 
 #calc-history {
-    background-color: brown;
-    height: 25px;
-    text-align: right;
     color: white;
+    flex: 1;
+}
+
+#calc-panel {
+    height: 400px;
+    display: flex;
+}
+
+.input-keys {
+    width: 240px;
+}
+
+.function-keys {
+    display: flex;
+}
+
+.digit-keys {
+    background: #e0e0e7;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+}
+
+.calculator-key {
+    width: 80px;
+    height: 80px;
+    border-top: 1px solid #777;
+    border-right: 1px solid #666;
+    text-align: center;
+    line-height: 80px;
+}
+
+.operator-keys .calculator-key {
+    color: white;
+    border-right: 0;
+    font-size: 3em;
+}
+
+#btn-0 {
+    width: 160px;
+    text-align: left;
+    padding-left: 32px;
+}
+
+.digit-keys .calculator-key {
+    font-size: 2.25em;
+}
+
+#btn-dot {
+    padding-top: 1em;
+    font-size: 0.75em;
+}
+
+.function-keys {
+    background: linear-gradient(to bottom, rgba(202, 202, 204, 1) 0%, rgba(196, 194, 204, 1) 100%);
+}
+
+.operator-keys {
+    background: linear-gradient(to bottom, rgba(252, 156, 23, 1) 0%, rgba(247, 126, 27, 1) 100%);
 }
