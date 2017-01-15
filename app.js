@@ -1,4 +1,5 @@
 var maxLength = "9";
+var maxHistoryLength = "27";
 var entryVal = "0";
 var showHistory = "";
 var evalHistory = "";
@@ -91,7 +92,14 @@ function updateHistory(op) {
         evalHistory = evalHistory + op;
     }
 
-    $('#calc-history').text(evalHistory);
+    if (evalHistory.length > maxHistoryLength) {
+        var temp = evalHistory;
+        temp = "..." + evalHistory.slice(-(maxHistoryLength));
+        $('#calc-history').text(temp);
+    } else {
+        $('#calc-history').text(evalHistory);
+    }
+
 }
 
 $(document).ready(function () {
@@ -103,7 +111,7 @@ $(document).ready(function () {
     $('#btn-ac').click(function () {
         entryVal = '0';
         $('#calc-current').text(entryVal);
-        evalHistory = '0';
+        evalHistory = '';
         $('#calc-history').text('');
     });
 
@@ -127,8 +135,22 @@ $(document).ready(function () {
         }
 
         if (evalHistory.length > 0) {
-            $('#calc-current').text(eval(evalHistory));
-            $('#calc-history').text(evalHistory);
+            var evalHistoryString = eval(evalHistory).toString();
+            if (evalHistoryString.length > maxLength) {
+                $('#calc-current').text(eval(evalHistory).toExponential(3));
+            } else {
+                $('#calc-current').text(eval(evalHistory));
+            }
+
+            if (evalHistory.length > maxHistoryLength) {
+                var temp = evalHistory;
+                temp = "..." + evalHistory.slice(-(maxHistoryLength));
+                $('#calc-history').text(temp);
+            } else {
+                $('#calc-history').text(evalHistory);
+            }
+
+
         }
 
         entryVal = '0';
