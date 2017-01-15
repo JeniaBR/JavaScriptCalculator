@@ -1,4 +1,4 @@
-var maxLength = "10";
+var maxLength = "9";
 var entryVal = "0";
 var showHistory = "";
 var evalHistory = "";
